@@ -1,5 +1,5 @@
 # Ecommerce-Store-Skinet
-IN PROCESS !
+IN PROGRESS !
 
 To run the project: </br>
 Run redis-server </br>
