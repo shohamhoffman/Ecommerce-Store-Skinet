@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { ShopService } from './shop.service';
 import { IProduct } from '../shared/models/product';
 import { IBrand } from '../shared/models/brand';
@@ -22,6 +22,7 @@ export class ShopComponent implements OnInit {
     {name: 'Price: Low to High', value: 'priceAsc'},
     {name: 'Price: High to Low', value: 'priceDesc'}
   ];
+  mobile = this.isMobile();
 
   constructor(private shopService: ShopService) {
     this.shopParams = this.shopService.getShopParams();
@@ -104,6 +105,15 @@ export class ShopComponent implements OnInit {
     this.shopParams = new ShopParams();
     this.shopService.setShopParams(this.shopParams);
     this.getProducts();
+  }
+
+  private isMobile() {
+    return window.screen.width <= 580;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  private onResize() {
+    this.mobile = window.screen.width <= 580;
   }
 
 }

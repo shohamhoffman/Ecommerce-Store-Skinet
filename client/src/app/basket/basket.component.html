@@ -1,6 +1,6 @@
 <div class="container mt-2">
     <div *ngIf="(basket$ | async) === null">
-        <p>There are no items in your basket</p>
+        <p>There are no items in your basket.</p>
     </div>
     
     <div *ngIf="basket$ | async">
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-6 offset-6">
+                    <div class="col-12 col-md-6 offset-md-6">
                         <app-order-totals
                             *ngIf="(basketTotals$ | async)"
                             [shippingPrice]="(basketTotals$ | async).shipping"

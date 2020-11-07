@@ -1,5 +1,5 @@
 <div class="mt-4" [formGroup]="checkoutForm">
-    <h4 class="mb-3">Choose Your Delivery Method</h4>
+    <h4 class="mb-4">Choose Your Delivery Method</h4>
     <div class="row ml-5" formGroupName="deliveryForm">
         <div class="col-6 form-group" *ngFor="let method of deliveryMethods">
             <input type="radio"
@@ -18,11 +18,15 @@
     </div>
 </div>
 
-<div class="float-none d-flex justify-content-between flex-column flex-lg-row mb-5">
-    <button class="btn btn-outline-primary" cdkStepperPrevious>
-        <i class="fa fa-angle-left"></i> Back to Address
-    </button>
-    <button [disabled]="checkoutForm.get('deliveryForm').invalid" class="btn btn-primary" cdkStepperNext>
-        Continue to Review <i class="fa fa-angle-right"></i>
-    </button>
+<div class="row float-none d-flex justify-content-between flex-lg-row pb-2 my-2">
+    <div class="col d-flex justify-content-start">
+        <button class="btn btn-outline-primary" cdkStepperPrevious>
+            <i class="fa fa-angle-left"></i> Back to Address
+        </button>
+    </div>
+    <div class="col d-flex justify-content-end">
+        <button [disabled]="checkoutForm.get('deliveryForm').invalid" class="btn btn-primary" cdkStepperNext>
+            Continue to Review <i class="fa fa-angle-right"></i>
+        </button>
+    </div>
 </div>

@@ -6,11 +6,15 @@
     </app-basket-summary>
 </div>
 
-<div class="float-none d-flex justify-content-between flex-column flex-lg-row mb-5">
-    <button class="btn btn-outline-primary" cdkStepperPrevious>
-        <i class="fa fa-angle-left"></i> Back to Delivery
-    </button>
-    <button class="btn btn-primary" (click)="createPaymentIntent()" >
-        Continue to Payment <i class="fa fa-angle-right"></i>
-    </button>
+<div class="row float-none d-flex justify-content-between flex-lg-row my-3">
+    <div class="col d-flex justify-content-start">
+        <button class="btn btn-outline-primary" cdkStepperPrevious>
+            <i class="fa fa-angle-left"></i> Back to Delivery
+        </button>
+    </div>
+    <div class="col d-flex justify-content-end">
+        <button class="btn btn-primary" (click)="createPaymentIntent()" >
+            Continue to Payment <i class="fa fa-angle-right"></i>
+        </button>
+    </div>
 </div>

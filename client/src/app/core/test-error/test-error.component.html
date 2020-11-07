@@ -1,8 +1,15 @@
 <div class="container mt-5">
-    <button class="btn btn-outline-primary mr-3" (click)="get500Error()">Test 500 Error</button>
-    <button class="btn btn-outline-primary mr-3" (click)="get404Error()">Test 404 Error</button>
-    <button class="btn btn-outline-primary mr-3" (click)="get400Error()">Test 400 Error</button>
-    <button class="btn btn-outline-primary mr-3" (click)="get400ValidationError()">Test 400 Validation Error</button>
+    <div class="row d-flex mb-4 mt-3 ml-1">
+        <p class="lead">An error page for testing the error responses.</p>
+    </div>
+    <div class="row">
+        <div class="col-6 col-md-12">
+            <button class="btn btn-outline-primary mr-3" (click)="get500Error()">Test 500 Error</button>
+            <button class="btn btn-outline-primary mr-3 my-2" (click)="get404Error()">Test 404 Error</button>
+            <button class="btn btn-outline-primary mr-3 my-2" (click)="get400Error()">Test 400 Error</button>
+            <button class="btn btn-outline-primary mr-3 my-2" (click)="get400ValidationError()">Test 400 Validation Error</button>
+        </div>
+    </div>
     <div class="row mt-5" *ngIf="validationErrors">
         <ul class="text-danger">
             <li *ngFor="let error of validationErrors">{{error}}</li>

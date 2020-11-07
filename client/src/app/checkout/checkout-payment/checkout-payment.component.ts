@@ -4,7 +4,6 @@ import { BasketService } from 'src/app/basket/basket.service';
 import { CheckoutService } from '../checkout.service';
 import { ToastrService } from 'ngx-toastr';
 import { IBasket } from 'src/app/shared/models/basket';
-import { IOrder } from 'src/app/shared/models/order';
 import { Router, NavigationExtras } from '@angular/router';
 
 declare var Stripe;
@@ -36,7 +35,9 @@ export class CheckoutPaymentComponent implements AfterViewInit, OnDestroy {
               private router: Router) { }
 
   ngAfterViewInit() {
-    this.stripe = Stripe('pk_test_51H7kXjId6GctSNPCFbZcz14glhDrbKolEij1cZ96mmYvrG8uyKsAnBqJU0WUHqmXAxPmZRUitoaMUQ3LV9MoMGYs00XWnbGC29');
+    this.stripe = Stripe('pk_test_51H7kXjId6GctSNPCFbZcz14glhDrbKolEij1cZ96mmYvrG8uyKsAnBqJU0WUHqmXAxPmZRUitoaMUQ3LV9MoMGYs00XWnbGC29', {
+      locale: 'en'
+    });
     const elements = this.stripe.elements();
 
     this.cardNumber = elements.create('cardNumber');

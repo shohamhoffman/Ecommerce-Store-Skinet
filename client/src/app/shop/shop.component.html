@@ -1,8 +1,82 @@
 <div class="container mt-3">
     <div class="row">
-
-        <section class="col-3">
-            <ng-container *ngIf="types && brands">
+        <section class="col-sm-3">
+            <ejs-accordion *ngIf="mobile">
+                <e-accordionitems>
+                    <e-accordionitem>
+                        <ng-template #header>
+                            <div>Filters</div>
+                        </ng-template>
+                        <ng-template #content>
+                            <div>
+                                <ejs-accordion>
+                                    <e-accordionitems>
+                                        <e-accordionitem>
+                                            <ng-template #header>
+                                                <div class="inner-header">Sort By</div>
+                                            </ng-template>
+                                            <ng-template #content>
+                                                <div>
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item mobile"
+                                                            *ngFor="let sort of sortOptions"
+                                                            [value]="sort.value"
+                                                            [class.active]="sort.value === this.shopParams.sort"
+                                                            (click)="onSortSelected(sort.value)"
+                                                        >
+                                                            {{sort.name}}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </ng-template>
+                                        </e-accordionitem>
+                                        <e-accordionitem>
+                                            <ng-template #header>
+                                                <div class="inner-header">Sort Brands</div>
+                                            </ng-template>
+                                            <ng-template #content>
+                                                <div>
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item mobile"
+                                                            *ngFor="let brand of brands"
+                                                            [class.active]="brand.id === this.shopParams.brandId"
+                                                            [value]="brand.id"
+                                                            (click)="onBrandSelected(brand.id)"
+                                                        >
+                                                            {{brand.name}}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </ng-template>
+                                        </e-accordionitem>
+    
+                                        <e-accordionitem>
+                                            <ng-template #header>
+                                                <div>Sort Types</div>
+                                            </ng-template>
+                                            <ng-template #content>
+                                                <div>
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item mobile"
+                                                            *ngFor="let type of types"
+                                                            [class.active]="type.id === this.shopParams.typeId"
+                                                            [value]="type.id"
+                                                            (click)="onTypeSelected(type.id)"
+                                                        >
+                                                            {{type.name}}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </ng-template>
+                                        </e-accordionitem>
+                                    </e-accordionitems>
+                                </ejs-accordion>
+                            </div>
+                        </ng-template>
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+            <ng-container *ngIf="types && brands && !mobile">
                 <h5 class="text-warning ml-3 mt-4 mb-3">Sort</h5>
                 <select class="custom-select mb-4" (change)="onSortSelected($event.target.value)">
                     <option *ngFor="let sort of sortOptions"
@@ -37,27 +111,33 @@
             </ng-container>
         </section>
 
-        <section class="col-9">
-            <div class="d-flex justify-content-between align-items-center pb-2">
-
-                <app-paging-header
-                    [totalCount]="totalCount"
-                    [pageSize]="this.shopParams.pageSize"
-                    [pageNumber]="this.shopParams.pageNumber">
-                </app-paging-header>
-
-                <div class="form-inline" *ngIf="products">
-                    <input class="form-control mr-2" #search style="width: 300px;" placeholder="Search"
-                    type="text" (keyup.enter)="onSearch()">
-                    <button class="btn btn-outline-primary my-2" (click)="onSearch()">
-                        Search</button>
-                    <button class="btn btn-outline-success ml-2 my-2" (click)="onReset()">
-                        Reset</button>
-                </div>
+        <section class="col-12 col-md-9 align-center-mobile">
+            <div class="row d-flex justify-content-between align-items-center pb-2">
+                    <div class="col-12 col-md">
+                        <app-paging-header
+                            [totalCount]="totalCount"
+                            [pageSize]="this.shopParams.pageSize"
+                            [pageNumber]="this.shopParams.pageNumber">
+                        </app-paging-header>
+                    </div>
+                    <div class="col p-3" *ngIf="products">
+                        <div class="row align-items-center">
+                            <div class="col-5 col-md-6" style="padding-right: 0px;">
+                                <input class="form-control" #search placeholder="Search"
+                                type="text" (keyup.enter)="onSearch()">
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-outline-primary" (click)="onSearch()">
+                                    Search</button>
+                                <button class="btn btn-outline-success ml-2" (click)="onReset()">
+                                    Reset</button>
+                            </div>
+                        </div>
+                    </div>                   
             </div>
 
             <div class="row">
-                <div class="col-4 mb-4" *ngFor="let product of products">
+                <div class="col-sm-4 mb-4" *ngFor="let product of products">
                   <app-product-item [product]="product"></app-product-item>
                 </div>
             </div>

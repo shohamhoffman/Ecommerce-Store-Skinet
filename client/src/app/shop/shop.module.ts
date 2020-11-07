@@ -5,6 +5,7 @@ import { ProductItemComponent } from './product-item/product-item.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ShopRoutingModule } from './shop-routing.module';
+import { AccordionModule } from '@syncfusion/ej2-angular-navigations';
 
 
 
@@ -13,7 +14,8 @@ import { ShopRoutingModule } from './shop-routing.module';
   imports: [
     CommonModule,
     SharedModule,
-    ShopRoutingModule
+    ShopRoutingModule,
+    AccordionModule
   ]
 })
 export class ShopModule { }

@@ -1,7 +1,7 @@
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-8">
-            <app-stepper [linearModeSelected]="true" #appStepper>
+    <div class="row d-flex flex-wrap justify-content-sm-between justify-content-md-center">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+            <app-stepper class="row" [linearModeSelected]="true" #appStepper>
                 <cdk-step [label]="'Address'" [completed]="(checkoutForm.get('addressForm')).valid">
                     <app-checkout-address [checkoutForm]="checkoutForm"></app-checkout-address>
                 </cdk-step>
@@ -16,7 +16,7 @@
                 </cdk-step>
             </app-stepper>
         </div>
-        <div class="col-4">
+        <div class="col-12 col-md-4 order-1 order-md-2">
             <app-order-totals
                 *ngIf="(basketTotals$ | async)"
                 [shippingPrice]="(basketTotals$ | async).shipping"

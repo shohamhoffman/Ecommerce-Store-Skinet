@@ -1,7 +1,7 @@
 .list-group-item {
     cursor: pointer;
     border: none;
-    padding: 10px 20px;
+    padding: 3.3% 8%;
     font-size: 1.1em;
 
     &:focus {
@@ -16,5 +16,51 @@
         color: #fff;
         background-color: rgba(233, 86, 32, 0.705);
         border-radius: 10px;
+    }
+}
+
+.list-group-item.mobile {
+    cursor: pointer;
+    border: none;
+    padding: 1% 2.5%;
+    font-size: 1.1em;
+
+    &:focus {
+        outline: none;
+    }
+
+    &.active {
+        border-radius: 10px;
+    }
+
+    &:not(.active):hover {
+        color: #fff;
+        background-color: rgba(233, 86, 32, 0.705);
+        border-radius: 10px;
+    }
+}
+
+.e-accordion {
+    border-radius: 10px;
+    border: none !important;
+} 
+
+/* header custom css*/
+.e-accordion .e-acrdn-item .e-acrdn-header {
+        border-radius: 10px;
+}
+
+/*header on selected and expanded custom css*/
+.e-accordion .e-acrdn-item.e-select.e-expand-state > .e-acrdn-header {
+        background: white;
+}
+
+.e-accordion .e-acrdn-item.e-select.e-expand-state > .e-acrdn-header .e-acrdn-header-content {
+    color: black;
+}
+
+@media only screen and (max-width: 580px) {
+    .align-center-mobile {
+        text-align: center;
     }
 }
