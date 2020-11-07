@@ -23,7 +23,7 @@
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
     "@syncfusion/ej2-angular-navigations": "^18.3.44",
     "@types/jquery": "^3.5.4",
-    "bootstrap": "4.1.1",
+    "bootstrap": "4.3.1",
     "bootswatch": "^4.5.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
