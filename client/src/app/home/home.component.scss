@@ -1,6 +1,6 @@
 img {
     object-fit: cover;
-    height: fit-content;
+    height: 100%;
     width: 100%;
 }
 
@@ -21,4 +21,10 @@ h1 {
 .shop-btn {
     width: 50%;
     height: 50%;
+}
+
+@media only screen and (max-width: 580px) {
+    img {
+        height: fit-content;
+    }
 }
